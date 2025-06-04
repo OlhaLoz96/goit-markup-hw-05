@@ -638,7 +638,7 @@ img {
 }
 
 .modal-form-input {
-  outline: none;
+  outline: transparent;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   width: 100%;
@@ -678,6 +678,8 @@ img {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+  outline: transparent;
 }
 
 .modal-form-text::placeholder {
@@ -689,36 +691,28 @@ img {
 }
 
 .checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   margin-bottom: 0;
 }
 
 .custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
   width: 16px;
   height: 16px;
   border-radius: 2px;
   border: 1px solid rgba(46, 47, 66, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: transparent;
+  fill: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.custom-checkbox-icon {
-  fill: none;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-input[type='checkbox']:checked + label > span {
+input[type='checkbox']:checked + .checkbox-label > .custom-checkbox {
   background-color: #404bbf;
   border: none;
-}
-
-input[type='checkbox']:checked + label > span > svg {
   fill: #f4f4fd;
 }
 
@@ -732,6 +726,7 @@ input[type='checkbox']:checked + label > span > svg {
 .modal-send {
   display: block;
   min-width: 169px;
+  height: 56px;
   margin: 0 auto;
   padding: 16px 32px;
   border: none;
